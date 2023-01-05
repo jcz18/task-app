@@ -25,6 +25,8 @@
 		EA1CC8F9296605F20046BBAC /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8F7296605F20046BBAC /* EditTaskView.swift */; };
 		EA1CC8FB2966075C0046BBAC /* ListChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FA2966075C0046BBAC /* ListChildView.swift */; };
 		EA1CC8FC2966075C0046BBAC /* ListChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FA2966075C0046BBAC /* ListChildView.swift */; };
+		EA1CC900296767340046BBAC /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FF296767340046BBAC /* LabeledTextField.swift */; };
+		EA1CC901296767340046BBAC /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FF296767340046BBAC /* LabeledTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		EA1CC8F4296605AA0046BBAC /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		EA1CC8F7296605F20046BBAC /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		EA1CC8FA2966075C0046BBAC /* ListChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChildView.swift; sourceTree = "<group>"; };
+		EA1CC8FF296767340046BBAC /* LabeledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,7 @@
 				EA1CC8F4296605AA0046BBAC /* ListView.swift */,
 				EA1CC8FA2966075C0046BBAC /* ListChildView.swift */,
 				EA1CC8F7296605F20046BBAC /* EditTaskView.swift */,
+				EA1CC8FF296767340046BBAC /* LabeledTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +338,7 @@
 				EA1CC8F5296605AA0046BBAC /* ListView.swift in Sources */,
 				EA1CC8FB2966075C0046BBAC /* ListChildView.swift in Sources */,
 				EA1CC8DF2964B1FA0046BBAC /* ContentView.swift in Sources */,
+				EA1CC900296767340046BBAC /* LabeledTextField.swift in Sources */,
 				EA1CC8F22964C0540046BBAC /* Task.swift in Sources */,
 				EA1CC8DD2964B1FA0046BBAC /* task_appApp.swift in Sources */,
 				EA1CC8F8296605F20046BBAC /* EditTaskView.swift in Sources */,
@@ -347,6 +352,7 @@
 				EA1CC8F6296605AA0046BBAC /* ListView.swift in Sources */,
 				EA1CC8FC2966075C0046BBAC /* ListChildView.swift in Sources */,
 				EA1CC8E02964B1FA0046BBAC /* ContentView.swift in Sources */,
+				EA1CC901296767340046BBAC /* LabeledTextField.swift in Sources */,
 				EA1CC8F32964C0540046BBAC /* Task.swift in Sources */,
 				EA1CC8DE2964B1FA0046BBAC /* task_appApp.swift in Sources */,
 				EA1CC8F9296605F20046BBAC /* EditTaskView.swift in Sources */,

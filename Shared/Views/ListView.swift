@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ListView: View {
     
-    var list: [Task] = [
-        Task(name: "help"),
-        Task(name: "test")
-    ]
+    var list: [Task]
     
     
     var body: some View {
@@ -32,8 +29,22 @@ struct ListView: View {
     }
 }
 
+private var task: Task = {
+    var _task = Task(name: "help")
+    _task.description = "stuff"
+    _task.endDate = .distantPast
+    return _task
+}()
+
+private var taskTwo: Task = {
+    var _task = Task(name: "test")
+    _task.description = "wow"
+    _task.endDate = .distantPast
+    return _task
+}()
+
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(list: [task, taskTwo])
     }
 }

@@ -17,25 +17,28 @@ public class Task: Codable, Identifiable {
     
     public var isRecurring: Bool
     
+    public var isComplete: Bool
+    
     public var startDate: Date
     
-    public var endDate: Date?
+    public var endDate: Date
     
-    public var location: String?
+    public var location: String
     
     /// Class Initializer
 
-    public init(name: String, description: String, isRecurring: Bool, startDate: Date, endDate: Date?, location: String?) {
+    public init(name: String, description: String, isRecurring: Bool, isComplete: Bool, startDate: Date, endDate: Date, location: String) {
         self.name = name
         self.description = description
         self.isRecurring = isRecurring
+        self.isComplete = isComplete
         self.startDate = startDate
         self.endDate = endDate
         self.location = location
     }
     
     public convenience init(name: String) {
-        self.init(name: name, description: "", isRecurring: false, startDate: Date.now, endDate: nil, location: "")
+        self.init(name: name, description: "", isRecurring: false, isComplete: false, startDate: .now, endDate: .distantFuture, location: "")
     }
     
     /// Class Methods
