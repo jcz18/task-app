@@ -14,11 +14,13 @@ struct LabeledTextField: View {
     @State var text: String = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0.0) {
             Text(label)
-            .frame(width: 125.0, height: 22.5, alignment: .leading)
-            TextField("Name", text: $text)
-            .frame(width: 125.0, height: 27.5, alignment: .trailing)
+            .frame(width: 125.0, height: 15.5, alignment: .bottomLeading)
+            .font(.caption)
+            TextField("", text: $text)
+            .frame(width: 125.0, height: 27.5, alignment: .center)
+            .padding(EdgeInsets(top: 0, leading: 3, bottom: 0, trailing: 3))
             .border(.black, width: 1.0)
             
         }

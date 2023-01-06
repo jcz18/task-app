@@ -19,11 +19,12 @@ struct ListView: View {
                 ListChildView(item: task)
                 .toolbar{
                     NavigationLink(destination: EditTaskView()) {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "plus")
                     }
                 }
             }
             .navigationTitle("Task App")
+            .navigationBarTitleDisplayMode(.inline)
         }
         }
     }

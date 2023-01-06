@@ -11,25 +11,53 @@ struct EditTaskView: View {
     
     @State var taskToEdit: Task = Task(name: "")
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        NavigationView {
-        VStack {
-            HStack {
-                LabeledTextField(label: "Name", text: taskToEdit.name)
-                LabeledTextField(label: "Description", text: taskToEdit.description)
+        VStack(spacing: 35.0) {
+            // Name, Location, isRecurring
+            HStack(spacing: 95.0) {
+                VStack(alignment: .leading, spacing: 5.0) {
+                    LabeledTextField(label: "Name", text: taskToEdit.name)
+                    LabeledTextField(label: "Location", text: taskToEdit.location)
+                }
+                LabeledCheckButton(label: "Recurring?", checked: taskToEdit.isRecurring)
             }
-            HStack {
-                TextField("Location", text: $taskToEdit.location)
-                Text("xd")
+            // EndDate, StartDate
+            VStack(spacing: 5.5) {
+                Text("Start and End Date")
+                .padding()
+                .font(.caption)
+                .frame(width: 335.0, height: 25.0, alignment: .bottomLeading)
+                VStack {
+                    DatePicker("Start", selection: $taskToEdit.startDate)
+                    .scaleEffect(0.9)
+                    .padding(EdgeInsets(top: 6, leading: 0, bottom: 2, trailing: 0))
+                    DatePicker("End", selection: $taskToEdit.endDate)
+                    .scaleEffect(0.9)
+                    .padding(EdgeInsets(top: 2, leading: 0, bottom: 6, trailing: 0))
+                }
+                .border(.black)
+                .frame(width: 305.0, height: 50.0, alignment: .center)
             }
-            HStack {
-                DatePicker("Start Date", selection: $taskToEdit.startDate)
-                DatePicker("End Date", selection: $taskToEdit.endDate)
+            // Description
+            VStack(spacing: 0.0) {
+                Text("Description")
+                    .frame(width: 305.0, height: 15.5, alignment: .bottomLeading)
+                .font(.caption)
+                TextField("", text: $taskToEdit.description)
+                .frame(width: 305.0, height: 200, alignment: .topLeading)
+                .padding(EdgeInsets(top: 5.0, leading: 3, bottom: 5.0, trailing: 3))
+                .border(.black, width: 1.0)
+                
             }
+            Button(taskToEdit.name == "" ? "Create Task" : "Edit Task") {
+                self.dismiss()
+            }
+            .buttonStyle(.bordered)
         }
-        }
-        .navigationTitle(taskToEdit.name)
-
+        .frame(alignment: .top)
+        .navigationBarTitle(taskToEdit.name == "" ? "New Task" : taskToEdit.name, displayMode: .inline)
     }
 }
 
