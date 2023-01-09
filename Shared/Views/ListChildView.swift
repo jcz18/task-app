@@ -16,10 +16,12 @@ struct ListChildView: View {
         return _formatter
     }()
     
-    @State var item: Task
+    @Binding var item: Task
+    
+    @Binding var taskList: [Task]
     
     var body: some View {
-        NavigationLink(destination:  EditTaskView(taskToEdit: item)) {
+        NavigationLink(destination:  EditTaskView(taskToEdit: $item, taskList: $taskList)) {
             HStack {
                 Text(self.item.name)
                 Text(self.item.endDate != .distantFuture ? dateFormatter.string(from: self.item.endDate) : "")
@@ -29,15 +31,25 @@ struct ListChildView: View {
     }
 }
 
-private var task: Task = {
-    var _task = Task(name: "help")
-    _task.description = "stuff"
-    _task.endDate = .distantPast
-    return _task
-}()
-
 struct ListChildView_Previews: PreviewProvider {
+    
+    struct ListChildViewPreviewHolder: View {
+        
+        @State var testTask: Task = {
+            var _task = Task(name: "help")
+            _task.description = "stuff"
+            _task.endDate = .distantPast
+            return _task
+        }()
+        
+        @State var testList: [Task] = []
+        
+        var body: some View {
+            ListChildView(item: $testTask, taskList: $testList)
+        }
+    }
+    
     static var previews: some View {
-        ListChildView(item: task)
+        ListChildViewPreviewHolder()
     }
 }

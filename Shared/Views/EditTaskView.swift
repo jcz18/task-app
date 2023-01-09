@@ -9,7 +9,9 @@ import SwiftUI
 
 struct EditTaskView: View {
     
-    @State var taskToEdit: Task = Task(name: "")
+    @Binding var taskToEdit: Task
+    
+    @Binding var taskList: [Task]
     
     @Environment(\.dismiss) var dismiss
     
@@ -18,10 +20,10 @@ struct EditTaskView: View {
             // Name, Location, isRecurring
             HStack(spacing: 95.0) {
                 VStack(alignment: .leading, spacing: 5.0) {
-                    LabeledTextField(label: "Name", text: taskToEdit.name)
-                    LabeledTextField(label: "Location", text: taskToEdit.location)
+                    LabeledTextField(label: "Name", text: $taskToEdit.name)
+                    LabeledTextField(label: "Location", text: $taskToEdit.location)
                 }
-                LabeledCheckButton(label: "Recurring?", checked: taskToEdit.isRecurring)
+                LabeledCheckButton(label: "Recurring?", checked: $taskToEdit.isRecurring)
             }
             // EndDate, StartDate
             VStack(spacing: 5.5) {
@@ -52,6 +54,11 @@ struct EditTaskView: View {
                 
             }
             Button(taskToEdit.name == "" ? "Create Task" : "Edit Task") {
+                if let index = taskList.firstIndex(of: taskToEdit) {
+                    taskList[index] = taskToEdit
+                } else {
+                    taskList.append(taskToEdit)
+                }
                 self.dismiss()
             }
             .buttonStyle(.bordered)
@@ -61,15 +68,27 @@ struct EditTaskView: View {
     }
 }
 
-private var task: Task = {
-    var _task = Task(name: "help")
-    _task.description = "stuff"
-    _task.endDate = .distantPast
-    return _task
-}()
 
 struct EditTaskView_Previews: PreviewProvider {
+    
+    struct EditTaskViewPreviewHolder: View {
+        
+        @State var testTask: Task = {
+            var _task = Task(name: "help")
+            _task.description = "stuff"
+            _task.endDate = .distantPast
+            return _task
+        }()
+        
+        @State var taskList: [Task] = []
+        
+        var body: some View {
+            EditTaskView(taskToEdit: $testTask, taskList: $taskList)
+        }
+        
+    }
+    
     static var previews: some View {
-        EditTaskView(taskToEdit: task)
+        EditTaskViewPreviewHolder()
     }
 }

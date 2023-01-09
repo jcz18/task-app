@@ -11,7 +11,7 @@ struct LabeledCheckButton: View {
     
     @State var label: String = ""
     
-    @State var checked: Bool = true
+    @Binding var checked: Bool
     
     
     var body: some View {
@@ -27,7 +27,18 @@ struct LabeledCheckButton: View {
 }
 
 struct LabeledCheckButton_Previews: PreviewProvider {
+    
+    struct LabeledCheckButtonPreviewHolder: View {
+        
+        @State var isChecked = false
+        
+        var body: some View {
+            LabeledCheckButton(label:"test", checked: $isChecked)
+        }
+        
+    }
+    
     static var previews: some View {
-        LabeledCheckButton(label:"test")
+        LabeledCheckButtonPreviewHolder()
     }
 }

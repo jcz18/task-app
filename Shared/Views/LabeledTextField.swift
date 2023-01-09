@@ -11,7 +11,7 @@ struct LabeledTextField: View {
     
     @State var label: String = ""
     
-    @State var text: String = ""
+    @Binding var text: String
     
     var body: some View {
         VStack(spacing: 0.0) {
@@ -31,6 +31,6 @@ struct LabeledTextField: View {
 
 struct LabeledTextField_Previews: PreviewProvider {
     static var previews: some View {
-        LabeledTextField(label: "label", text: "text")
+        LabeledTextField(label: "label", text: .constant("text"))
     }
 }

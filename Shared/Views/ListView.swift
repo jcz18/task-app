@@ -9,23 +9,21 @@ import SwiftUI
 
 struct ListView: View {
     
-    var list: [Task]
+    @State var list: [Task]
     
     
     var body: some View {
         NavigationView {
-            List {
-            ForEach(list) { task in
-                ListChildView(item: task)
+            List($list) { $task in
+                ListChildView(item: $task, taskList: $list)
                 .toolbar{
-                    NavigationLink(destination: EditTaskView()) {
+                    NavigationLink(destination: EditTaskView(taskToEdit: .constant(Task(name: "")), taskList: $list)) {
                         Image(systemName: "plus")
                     }
                 }
             }
             .navigationTitle("Task App")
             .navigationBarTitleDisplayMode(.inline)
-        }
         }
     }
 }

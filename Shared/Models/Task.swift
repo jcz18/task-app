@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Task: Codable, Identifiable {
+public class Task: Identifiable, Codable, Equatable {
     
     /// Class Variables
     
@@ -25,6 +25,8 @@ public class Task: Codable, Identifiable {
     
     public var location: String
     
+    public var id: UUID
+    
     /// Class Initializer
 
     public init(name: String, description: String, isRecurring: Bool, isComplete: Bool, startDate: Date, endDate: Date, location: String) {
@@ -35,6 +37,7 @@ public class Task: Codable, Identifiable {
         self.startDate = startDate
         self.endDate = endDate
         self.location = location
+        self.id = UUID()
     }
     
     public convenience init(name: String) {
@@ -42,4 +45,12 @@ public class Task: Codable, Identifiable {
     }
     
     /// Class Methods
+    
+    public func equalTo(rhs: Task) -> Bool {
+        return self.id == rhs.id
+    }
+    
+    public static func ==(lhs: Task, rhs: Task) -> Bool {
+        return lhs.equalTo(rhs: rhs)
+    }
 }
