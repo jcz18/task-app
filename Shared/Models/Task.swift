@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Task: Identifiable, Codable, Equatable {
+public struct Task: Identifiable, Codable, Equatable {
     
     /// Class Variables
     
@@ -25,7 +25,7 @@ public class Task: Identifiable, Codable, Equatable {
     
     public var location: String
     
-    public var id: UUID
+    public let id: UUID
     
     /// Class Initializer
 
@@ -40,7 +40,7 @@ public class Task: Identifiable, Codable, Equatable {
         self.id = UUID()
     }
     
-    public convenience init(name: String) {
+    public init(name: String) {
         self.init(name: name, description: "", isRecurring: false, isComplete: false, startDate: .now, endDate: .distantFuture, location: "")
     }
     

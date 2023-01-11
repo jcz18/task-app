@@ -29,6 +29,8 @@
 		EA1CC901296767340046BBAC /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FF296767340046BBAC /* LabeledTextField.swift */; };
 		EA1CC90329688A6C0046BBAC /* LabeledCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC90229688A6C0046BBAC /* LabeledCheckButton.swift */; };
 		EA1CC90429688A6C0046BBAC /* LabeledCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC90229688A6C0046BBAC /* LabeledCheckButton.swift */; };
+		EA7CC1E2296F50EE0021C713 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC1E1296F50EE0021C713 /* TaskStore.swift */; };
+		EA7CC1E3296F50EE0021C713 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC1E1296F50EE0021C713 /* TaskStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 		EA1CC8FA2966075C0046BBAC /* ListChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChildView.swift; sourceTree = "<group>"; };
 		EA1CC8FF296767340046BBAC /* LabeledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledTextField.swift; sourceTree = "<group>"; };
 		EA1CC90229688A6C0046BBAC /* LabeledCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledCheckButton.swift; sourceTree = "<group>"; };
+		EA7CC1E1296F50EE0021C713 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				EA1CC8F12964C0540046BBAC /* Task.swift */,
+				EA7CC1E1296F50EE0021C713 /* TaskStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,6 +346,7 @@
 				EA1CC8F5296605AA0046BBAC /* ListView.swift in Sources */,
 				EA1CC8FB2966075C0046BBAC /* ListChildView.swift in Sources */,
 				EA1CC90329688A6C0046BBAC /* LabeledCheckButton.swift in Sources */,
+				EA7CC1E2296F50EE0021C713 /* TaskStore.swift in Sources */,
 				EA1CC8DF2964B1FA0046BBAC /* ContentView.swift in Sources */,
 				EA1CC900296767340046BBAC /* LabeledTextField.swift in Sources */,
 				EA1CC8F22964C0540046BBAC /* Task.swift in Sources */,
@@ -357,6 +362,7 @@
 				EA1CC8F6296605AA0046BBAC /* ListView.swift in Sources */,
 				EA1CC8FC2966075C0046BBAC /* ListChildView.swift in Sources */,
 				EA1CC90429688A6C0046BBAC /* LabeledCheckButton.swift in Sources */,
+				EA7CC1E3296F50EE0021C713 /* TaskStore.swift in Sources */,
 				EA1CC8E02964B1FA0046BBAC /* ContentView.swift in Sources */,
 				EA1CC901296767340046BBAC /* LabeledTextField.swift in Sources */,
 				EA1CC8F32964C0540046BBAC /* Task.swift in Sources */,
