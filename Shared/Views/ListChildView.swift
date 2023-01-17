@@ -24,7 +24,15 @@ struct ListChildView: View {
         NavigationLink(destination:  EditTaskView(taskToEdit: $item, taskList: $taskList)) {
             HStack {
                 Text(self.item.name)
+                .font(.headline)
                 Text(self.item.endDate != .distantFuture ? dateFormatter.string(from: self.item.endDate) : "")
+                .font(.caption)
+                Spacer()
+                if item.isComplete {
+                    Image(systemName: "checkmark")
+                } else {
+                    Image(systemName: "exclamationmark")
+                }
                 
             }
         }

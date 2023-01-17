@@ -25,9 +25,9 @@ struct EditTaskView: View {
                 }
                 LabeledCheckButton(label: "Recurring?", checked: $taskToEdit.isRecurring)
             }
-            // EndDate, StartDate
-            VStack(spacing: 5.5) {
-                Text("Start and End Date")
+            // EndDate, StartDate, Occurance Rate
+            VStack(spacing: 0) {
+                Text("Duration and Occurance Rate")
                 .padding()
                 .font(.caption)
                 .frame(width: 335.0, height: 25.0, alignment: .bottomLeading)
@@ -38,33 +38,65 @@ struct EditTaskView: View {
                     DatePicker("End", selection: $taskToEdit.endDate)
                     .scaleEffect(0.9)
                     .padding(EdgeInsets(top: 2, leading: 0, bottom: 6, trailing: 0))
+                    HStack(spacing: 200.0) {
+                        Text("Rate")
+                        .frame(maxWidth: .infinity, alignment:.leading)
+                        Picker("", selection: $taskToEdit.taskRate) {
+                            Text("Daily").tag(Task.Recurrence.daily)
+                            Text("Weekly").tag(Task.Recurrence.weekly)
+                            Text("Monthly").tag(Task.Recurrence.monthly)
+                        }
+                        .labelsHidden()
+                    }
+                    .scaleEffect(0.9)
+                    
                 }
                 .border(.black)
-                .frame(width: 305.0, height: 50.0, alignment: .center)
+                .frame(width: 305.0, height: 100.0, alignment: .center)
             }
+            .disabled(!taskToEdit.isRecurring)
+            
             // Description
             VStack(spacing: 0.0) {
                 Text("Description")
                     .frame(width: 305.0, height: 15.5, alignment: .bottomLeading)
                 .font(.caption)
                 TextField("", text: $taskToEdit.description)
-                .frame(width: 305.0, height: 200, alignment: .topLeading)
+                .frame(width: 305.0, height: 180, alignment: .topLeading)
                 .padding(EdgeInsets(top: 5.0, leading: 3, bottom: 5.0, trailing: 3))
                 .border(.black, width: 1.0)
                 
             }
-            Button(taskToEdit.name == "" ? "Create Task" : "Edit Task") {
-                if let index = taskList.firstIndex(of: taskToEdit) {
-                    taskList[index] = taskToEdit
-                } else {
-                    taskList.append(taskToEdit)
+            HStack {
+                
+                Button("Delete Task") {
+                    guard let index = taskList.firstIndex(of: taskToEdit) else {
+                        return
+                    }
+                    taskList.remove(at: index)
+                    self.dismiss()
                 }
-                self.dismiss()
+                .buttonStyle(.bordered)
+                
+                Button( "Edit Task") {
+                    guard let index = taskList.firstIndex(of: taskToEdit) else {
+                        return
+                    }
+                    taskList[index] = taskToEdit
+                    self.dismiss()
+                }
+                .buttonStyle(.bordered)
             }
-            .buttonStyle(.bordered)
+            Spacer()
         }
         .frame(alignment: .top)
         .navigationBarTitle(taskToEdit.name == "" ? "New Task" : taskToEdit.name, displayMode: .inline)
+        .toolbar{
+            Button("Complete") {
+                taskToEdit.isComplete = true
+                self.dismiss()
+            }
+        }
     }
 }
 

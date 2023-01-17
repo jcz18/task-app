@@ -21,6 +21,7 @@ struct ListView: View {
                 .onTapGesture {
                     list.taskList.append(Task(name: "New Task"))
                 }
+                
             }
             .navigationTitle("Task App")
             .navigationBarTitleDisplayMode(.inline)

@@ -25,11 +25,13 @@ public struct Task: Identifiable, Codable, Equatable {
     
     public var location: String
     
+    public var taskRate: Task.Recurrence
+    
     public let id: UUID
     
     /// Class Initializer
 
-    public init(name: String, description: String, isRecurring: Bool, isComplete: Bool, startDate: Date, endDate: Date, location: String) {
+    public init(name: String, description: String, isRecurring: Bool, isComplete: Bool, startDate: Date, endDate: Date, location: String, taskRate: Task.Recurrence) {
         self.name = name
         self.description = description
         self.isRecurring = isRecurring
@@ -37,11 +39,12 @@ public struct Task: Identifiable, Codable, Equatable {
         self.startDate = startDate
         self.endDate = endDate
         self.location = location
+        self.taskRate = taskRate
         self.id = UUID()
     }
     
     public init(name: String) {
-        self.init(name: name, description: "", isRecurring: false, isComplete: false, startDate: .now, endDate: .distantFuture, location: "")
+        self.init(name: name, description: "", isRecurring: false, isComplete: false, startDate: .now, endDate: .now, location: "", taskRate: .singleton)
     }
     
     /// Class Methods
@@ -52,5 +55,15 @@ public struct Task: Identifiable, Codable, Equatable {
     
     public static func ==(lhs: Task, rhs: Task) -> Bool {
         return lhs.equalTo(rhs: rhs)
+    }
+    
+    
+    /// Related Enums
+    
+    public enum Recurrence: String, Codable {
+        case singleton = "only once"
+        case daily = "once per day"
+        case weekly = "once per week"
+        case monthly = "once per month"
     }
 }
