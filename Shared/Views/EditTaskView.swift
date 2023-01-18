@@ -27,14 +27,11 @@ struct EditTaskView: View {
             }
             // EndDate, StartDate, Occurance Rate
             VStack(spacing: 0) {
-                Text("Duration and Occurance Rate")
+                Text("End Date and Occurance Rate")
                 .padding()
                 .font(.caption)
                 .frame(width: 335.0, height: 25.0, alignment: .bottomLeading)
-                VStack {
-                    DatePicker("Start", selection: $taskToEdit.startDate)
-                    .scaleEffect(0.9)
-                    .padding(EdgeInsets(top: 6, leading: 0, bottom: 2, trailing: 0))
+                VStack(spacing: 0) {
                     DatePicker("End", selection: $taskToEdit.endDate)
                     .scaleEffect(0.9)
                     .padding(EdgeInsets(top: 2, leading: 0, bottom: 6, trailing: 0))
@@ -52,7 +49,7 @@ struct EditTaskView: View {
                     
                 }
                 .border(.black)
-                .frame(width: 305.0, height: 100.0, alignment: .center)
+                .frame(width: 305.0, height: 40.0, alignment: .center)
             }
             .disabled(!taskToEdit.isRecurring)
             
@@ -67,7 +64,7 @@ struct EditTaskView: View {
                 .border(.black, width: 1.0)
                 
             }
-            HStack {
+            HStack(spacing: 45.0) {
                 
                 Button("Delete Task") {
                     guard let index = taskList.firstIndex(of: taskToEdit) else {
@@ -78,7 +75,7 @@ struct EditTaskView: View {
                 }
                 .buttonStyle(.bordered)
                 
-                Button( "Edit Task") {
+                Button("Edit Task") {
                     guard let index = taskList.firstIndex(of: taskToEdit) else {
                         return
                     }
@@ -91,7 +88,7 @@ struct EditTaskView: View {
         }
         .frame(alignment: .top)
         .navigationBarTitle(taskToEdit.name == "" ? "New Task" : taskToEdit.name, displayMode: .inline)
-        .toolbar{
+        .toolbar {
             Button("Complete") {
                 taskToEdit.isComplete = true
                 self.dismiss()
