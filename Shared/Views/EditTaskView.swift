@@ -26,7 +26,7 @@ struct EditTaskView: View {
                 LabeledCheckButton(label: "Recurring?", checked: $taskToEdit.isRecurring)
             }
             // EndDate, StartDate, Occurance Rate
-            VStack(spacing: 0) {
+            VStack(spacing: 2.5) {
                 Text("End Date and Occurance Rate")
                 .padding()
                 .font(.caption)
@@ -35,7 +35,7 @@ struct EditTaskView: View {
                     DatePicker("End", selection: $taskToEdit.endDate)
                     .scaleEffect(0.9)
                     .padding(EdgeInsets(top: 2, leading: 0, bottom: 6, trailing: 0))
-                    HStack(spacing: 200.0) {
+                    HStack(spacing: 20.0) {
                         Text("Rate")
                         .frame(maxWidth: .infinity, alignment:.leading)
                         Picker("", selection: $taskToEdit.taskRate) {
@@ -71,6 +71,11 @@ struct EditTaskView: View {
                         return
                     }
                     taskList.remove(at: index)
+                    TaskStore.save(tasks: taskList) { result in
+                        if case .failure(let error) = result {
+                            fatalError(error.localizedDescription)
+                        }
+                    }
                     self.dismiss()
                 }
                 .buttonStyle(.bordered)
@@ -80,6 +85,11 @@ struct EditTaskView: View {
                         return
                     }
                     taskList[index] = taskToEdit
+                    TaskStore.save(tasks: taskList) { result in
+                        if case .failure(let error) = result {
+                            fatalError(error.localizedDescription)
+                        }
+                    }
                     self.dismiss()
                 }
                 .buttonStyle(.bordered)
@@ -91,6 +101,11 @@ struct EditTaskView: View {
         .toolbar {
             Button("Complete") {
                 taskToEdit.isComplete = true
+                TaskStore.save(tasks: taskList) { result in
+                    if case .failure(let error) = result {
+                        fatalError(error.localizedDescription)
+                    }
+                }
                 self.dismiss()
             }
         }

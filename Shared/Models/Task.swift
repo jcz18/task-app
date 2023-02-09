@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 public struct Task: Identifiable, Codable, Equatable {
     
@@ -56,6 +57,13 @@ public struct Task: Identifiable, Codable, Equatable {
     
     /// Class Methods
     
+    public func toNotification() -> UNMutableNotificationContent {
+        let notification = UNMutableNotificationContent()
+        notification.title = self.name
+        notification.subtitle = "Task due in: " + self.resetDate.description
+        notification.sound = .default
+        return notification
+    }
     
     public func equalTo(rhs: Task) -> Bool {
         return self.id == rhs.id
