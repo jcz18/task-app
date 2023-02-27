@@ -13,10 +13,8 @@ struct task_appApp: App {
     
     @StateObject var taskStore = TaskStore()
     
-    let notificationCenter = UNUserNotificationCenter.current()
-    
     init() {
-        self.notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
                 fatalError(error.localizedDescription)
             }

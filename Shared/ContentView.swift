@@ -15,14 +15,32 @@ struct ContentView: View {
     
     let saveAction: () -> Void
     
+    // Trigger alert on top of next hour
+    var notificationTrigger: UNCalendarNotificationTrigger? {
+        guard let date = Calendar.current.date(byAdding: .hour, value: 1, to: .now) else {
+            return nil
+        }
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour], from: date)
+        return UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+    }
+    
     var body: some View {
         VStack {
             ListView(taskList: $taskList)
             Spacer()
         }
         .onChange(of: scenePhase) { phase in
-            if phase == .inactive {
+            if phase == .inactive || phase == .background {
                 self.saveAction()
+                for task in self.taskList {
+                    if !task.isFinished && task.isApproachingDueDate {
+                        let identifier = UUID().uuidString
+                        let request = UNNotificationRequest(identifier: identifier, content: task.toNotification(), trigger: self.notificationTrigger)
+                        UNUserNotificationCenter.current().add(request)
+                    }
+                }
+            } else {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             }
         }
     }
