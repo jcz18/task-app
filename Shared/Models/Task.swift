@@ -22,7 +22,14 @@ public struct Task: Identifiable, Codable, Equatable {
     
     public let startDate: Date
     
-    public var endDate: Date
+    public var endDate: Date {
+        didSet {
+            self.resetDate = self.endDate
+            if let nextReset = self.calculateReset() {
+                self.resetDate = nextReset
+            }
+        }
+    }
     
     public var location: String
     
@@ -30,22 +37,29 @@ public struct Task: Identifiable, Codable, Equatable {
     
     public let id: UUID
     
+    /// When the completeness of task should reset, and new reset date calculated. This can be bigger than the end date.
     public var resetDate: Date
     
     public var isFinished: Bool { self.isComplete && self.resetDate >= self.endDate }
     
-    // calculates if task is about to expire, based on reset date and task rate
+    /// If task is expired and no longer active.
+    public var isExpired: Bool { self.endDate < .now }
+    
+    /// When the task is due; either the next reset date, or the end date.
+    public var dueDate: Date { self.resetDate > self.endDate ? self.endDate : self.resetDate }
+    
+    /// Calculates if task is about to expire, based on reset date, end date, and task rate
     public var isApproachingDueDate: Bool {
         var notifyDate: Date?
         switch self.taskRate {
         case .daily:
-            notifyDate = Calendar.current.date(byAdding: .hour, value: -2, to: self.resetDate)
+            notifyDate = Calendar.current.date(byAdding: .hour, value: -2, to: self.dueDate)
         case .weekly:
-            notifyDate = Calendar.current.date(byAdding: .day, value: -2, to: self.resetDate)
+            notifyDate = Calendar.current.date(byAdding: .day, value: -2, to: self.dueDate)
         case .monthly:
-            notifyDate = Calendar.current.date(byAdding: .day, value: -7, to: self.resetDate)
+            notifyDate = Calendar.current.date(byAdding: .day, value: -7, to: self.dueDate)
         case .singleton:
-            notifyDate = Calendar.current.date(byAdding: .day, value: -2, to: self.resetDate)
+            notifyDate = Calendar.current.date(byAdding: .day, value: -2, to: self.dueDate)
         }
         return notifyDate ?? .distantPast < .now
     }
@@ -59,7 +73,7 @@ public struct Task: Identifiable, Codable, Equatable {
         self.isRecurring = isRecurring
         self.isComplete = isComplete
         self.startDate = startDate
-        self.resetDate = startDate
+        self.resetDate = endDate
         self.endDate = endDate
         self.location = location
         self.taskRate = taskRate
@@ -75,8 +89,12 @@ public struct Task: Identifiable, Codable, Equatable {
     public func toNotification() -> UNMutableNotificationContent {
         let notification = UNMutableNotificationContent()
         notification.title = "Task App Alert"
-        notification.subtitle = "\(self.name) Task due in: \(self.resetDate.description)"
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.hour, .minute]
+        notification.subtitle = "\(self.name) task due in \(formatter.string(from: .now, to: self.dueDate) ?? "ERR" )."
         notification.sound = .default
+        
         return notification
     }
     

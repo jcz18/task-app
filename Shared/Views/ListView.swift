@@ -30,7 +30,7 @@ struct ListView: View {
         }
         .onReceive(timer) { alert in
             for index in 0..<taskList.count {
-                if taskList[index].resetDate < .now && !taskList[index].isFinished {
+                if taskList[index].resetDate < .now && !taskList[index].isFinished && !taskList[index].isExpired {
                     taskList[index].resetTask()
                 }
             }

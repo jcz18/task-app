@@ -20,7 +20,7 @@ struct ContentView: View {
         guard let date = Calendar.current.date(byAdding: .hour, value: 1, to: .now) else {
             return nil
         }
-        let components = Calendar.current.dateComponents([.year, .month, .day, .hour], from: date)
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         return UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
     }
     
@@ -30,16 +30,16 @@ struct ContentView: View {
             Spacer()
         }
         .onChange(of: scenePhase) { phase in
-            if phase == .inactive || phase == .background {
+            if phase == .inactive {
                 self.saveAction()
                 for task in self.taskList {
-                    if !task.isFinished && task.isApproachingDueDate {
+                    if !task.isFinished && !task.isExpired && task.isApproachingDueDate {
                         let identifier = UUID().uuidString
                         let request = UNNotificationRequest(identifier: identifier, content: task.toNotification(), trigger: self.notificationTrigger)
                         UNUserNotificationCenter.current().add(request)
                     }
                 }
-            } else {
+            } else if phase == .active {
                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             }
         }
