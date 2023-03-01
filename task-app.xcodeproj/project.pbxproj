@@ -17,6 +17,20 @@
 		EA1CC8E02964B1FA0046BBAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8B62964B1F30046BBAC /* ContentView.swift */; };
 		EA1CC8E12964B1FA0046BBAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA1CC8B72964B1FA0046BBAC /* Assets.xcassets */; };
 		EA1CC8E22964B1FA0046BBAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA1CC8B72964B1FA0046BBAC /* Assets.xcassets */; };
+		EA1CC8F22964C0540046BBAC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8F12964C0540046BBAC /* Task.swift */; };
+		EA1CC8F32964C0540046BBAC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8F12964C0540046BBAC /* Task.swift */; };
+		EA1CC8F5296605AA0046BBAC /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8F4296605AA0046BBAC /* ListView.swift */; };
+		EA1CC8F6296605AA0046BBAC /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8F4296605AA0046BBAC /* ListView.swift */; };
+		EA1CC8F8296605F20046BBAC /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8F7296605F20046BBAC /* EditTaskView.swift */; };
+		EA1CC8F9296605F20046BBAC /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8F7296605F20046BBAC /* EditTaskView.swift */; };
+		EA1CC8FB2966075C0046BBAC /* ListChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FA2966075C0046BBAC /* ListChildView.swift */; };
+		EA1CC8FC2966075C0046BBAC /* ListChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FA2966075C0046BBAC /* ListChildView.swift */; };
+		EA1CC900296767340046BBAC /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FF296767340046BBAC /* LabeledTextField.swift */; };
+		EA1CC901296767340046BBAC /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC8FF296767340046BBAC /* LabeledTextField.swift */; };
+		EA1CC90329688A6C0046BBAC /* LabeledCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC90229688A6C0046BBAC /* LabeledCheckButton.swift */; };
+		EA1CC90429688A6C0046BBAC /* LabeledCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1CC90229688A6C0046BBAC /* LabeledCheckButton.swift */; };
+		EA7CC1E2296F50EE0021C713 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC1E1296F50EE0021C713 /* TaskStore.swift */; };
+		EA7CC1E3296F50EE0021C713 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC1E1296F50EE0021C713 /* TaskStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +63,14 @@
 		EA1CC8D52964B1FA0046BBAC /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1CC8D92964B1FA0046BBAC /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		EA1CC8DB2964B1FA0046BBAC /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		EA1CC8F12964C0540046BBAC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		EA1CC8F4296605AA0046BBAC /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		EA1CC8F7296605F20046BBAC /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		EA1CC8FA2966075C0046BBAC /* ListChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChildView.swift; sourceTree = "<group>"; };
+		EA1CC8FF296767340046BBAC /* LabeledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledTextField.swift; sourceTree = "<group>"; };
+		EA1CC90229688A6C0046BBAC /* LabeledCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledCheckButton.swift; sourceTree = "<group>"; };
+		EA3C88F529AF98D80099F4AC /* task-app--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "task-app--iOS--Info.plist"; sourceTree = "<group>"; };
+		EA7CC1E1296F50EE0021C713 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +108,7 @@
 		EA1CC8AF2964B1F30046BBAC = {
 			isa = PBXGroup;
 			children = (
+				EA3C88F529AF98D80099F4AC /* task-app--iOS--Info.plist */,
 				EA1CC8B42964B1F30046BBAC /* Shared */,
 				EA1CC8C32964B1FA0046BBAC /* macOS */,
 				EA1CC8CC2964B1FA0046BBAC /* Tests iOS */,
@@ -97,6 +120,8 @@
 		EA1CC8B42964B1F30046BBAC /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EA1CC8FE29661A7A0046BBAC /* Models */,
+				EA1CC8FD29661A710046BBAC /* Views */,
 				EA1CC8B52964B1F30046BBAC /* task_appApp.swift */,
 				EA1CC8B62964B1F30046BBAC /* ContentView.swift */,
 				EA1CC8B72964B1FA0046BBAC /* Assets.xcassets */,
@@ -139,6 +164,27 @@
 				EA1CC8DB2964B1FA0046BBAC /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		EA1CC8FD29661A710046BBAC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA1CC8F4296605AA0046BBAC /* ListView.swift */,
+				EA1CC8FA2966075C0046BBAC /* ListChildView.swift */,
+				EA1CC8F7296605F20046BBAC /* EditTaskView.swift */,
+				EA1CC8FF296767340046BBAC /* LabeledTextField.swift */,
+				EA1CC90229688A6C0046BBAC /* LabeledCheckButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EA1CC8FE29661A7A0046BBAC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EA1CC8F12964C0540046BBAC /* Task.swift */,
+				EA7CC1E1296F50EE0021C713 /* TaskStore.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +268,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					EA1CC8BB2964B1FA0046BBAC = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -299,8 +345,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA1CC8F5296605AA0046BBAC /* ListView.swift in Sources */,
+				EA1CC8FB2966075C0046BBAC /* ListChildView.swift in Sources */,
+				EA1CC90329688A6C0046BBAC /* LabeledCheckButton.swift in Sources */,
+				EA7CC1E2296F50EE0021C713 /* TaskStore.swift in Sources */,
 				EA1CC8DF2964B1FA0046BBAC /* ContentView.swift in Sources */,
+				EA1CC900296767340046BBAC /* LabeledTextField.swift in Sources */,
+				EA1CC8F22964C0540046BBAC /* Task.swift in Sources */,
 				EA1CC8DD2964B1FA0046BBAC /* task_appApp.swift in Sources */,
+				EA1CC8F8296605F20046BBAC /* EditTaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +361,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA1CC8F6296605AA0046BBAC /* ListView.swift in Sources */,
+				EA1CC8FC2966075C0046BBAC /* ListChildView.swift in Sources */,
+				EA1CC90429688A6C0046BBAC /* LabeledCheckButton.swift in Sources */,
+				EA7CC1E3296F50EE0021C713 /* TaskStore.swift in Sources */,
 				EA1CC8E02964B1FA0046BBAC /* ContentView.swift in Sources */,
+				EA1CC901296767340046BBAC /* LabeledTextField.swift in Sources */,
+				EA1CC8F32964C0540046BBAC /* Task.swift in Sources */,
 				EA1CC8DE2964B1FA0046BBAC /* task_appApp.swift in Sources */,
+				EA1CC8F9296605F20046BBAC /* EditTaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +440,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -438,6 +499,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -466,7 +528,7 @@
 				DEVELOPMENT_TEAM = N4L8ZJQ4RZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "task-app--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -496,7 +558,7 @@
 				DEVELOPMENT_TEAM = N4L8ZJQ4RZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "task-app--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -523,9 +585,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = N4L8ZJQ4RZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -551,9 +615,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = N4L8ZJQ4RZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -620,6 +686,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = N4L8ZJQ4RZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
@@ -639,6 +706,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = N4L8ZJQ4RZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
